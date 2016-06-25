@@ -20,13 +20,13 @@ public  class Money {
     @Override
     public boolean equals(Object obj) {
         Money money=(Money)obj;
-        return amount==money.amount&&getClass().equals(money.getClass());
+        return amount==money.amount&&currency.equals(money.currency());
     }
-    static Franc franc(int amount){
-        return new Franc(amount,"CHF");
+    static Money franc(int amount){
+        return new Money(amount,"CHF");
     }
-    static Dollar dollar(int amount){
-        return new Dollar(amount,"USD");
+    static Money dollar(int amount){
+        return new Money(amount,"USD");
     }
 
     public  String currency(){
