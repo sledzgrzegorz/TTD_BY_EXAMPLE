@@ -3,7 +3,7 @@ package com.ttd;
 /**
  * Created by Grzesiek on 2016-06-25.
  */
-public abstract class Money {
+public  class Money {
     protected int amount;
 
     protected String currency;
@@ -13,7 +13,9 @@ public abstract class Money {
         this.currency=currency;
     }
 
-    abstract Money times(int multiplayer);
+     Money times(int multiplayer){
+         return new Money(amount*multiplayer,currency);
+     }
 
     @Override
     public boolean equals(Object obj) {
@@ -29,5 +31,10 @@ public abstract class Money {
 
     public  String currency(){
         return currency;
+    }
+
+    @Override
+    public String toString() {
+        return amount+" "+currency;
     }
 }
