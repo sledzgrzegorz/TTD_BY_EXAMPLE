@@ -6,11 +6,11 @@ package com.ttd;
 public class Franc  extends Money{
 
 
-    public Franc(int amount){
-        super(amount);
+    public Franc(int amount,String currency){
+        super(amount,currency);
     }
     Money times(int multiplayer){
-        return new Franc(amount*multiplayer);
+        return  Money.franc(amount*multiplayer);
     }
 
 

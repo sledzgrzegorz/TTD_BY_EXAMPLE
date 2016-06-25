@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 /**
  * Created by Grzesiek on 2016-06-25.
  */
-public class TestDollar {
+public class TestMoney {
     @Test
     public void testMulitpilication(){
         Dollar five=Money.dollar(5);
@@ -24,8 +24,15 @@ public class TestDollar {
     }
     @Test
     public void testFrancMultiplication(){
-        Franc five = new Franc(5);
+        Franc five = Money.franc(5);
         Assert.assertEquals(Money.franc(10),five.times(2));
         Assert.assertEquals(Money.franc(15),five.times(3));
     }
+    @Test
+    public void testCurrency(){
+        Franc five = Money.franc(5);
+        Assert.assertEquals("USD",Money.dollar(1).currency());
+        Assert.assertEquals("CHF",Money.franc(1).currency());
+    }
+
 }
