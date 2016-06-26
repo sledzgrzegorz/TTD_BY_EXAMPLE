@@ -15,7 +15,7 @@ public  class Money implements Expression{
         this.currency=currency;
     }
 
-     Money times(int multiplayer){
+    Expression times(int multiplayer){
          return new Money(amount*multiplayer,currency);
      }
 
@@ -31,13 +31,15 @@ public  class Money implements Expression{
         return new Money(amount,"USD");
     }
 
-    Expression plus(Money addend){
-        return new Sum(this,addend);
-    }
+
 
     public Money reduce(Bank bank,String to) {
         int rate=(currency.equals("CHF")&&to.equals("USD"))?2:1;
         return new Money(amount/rate,to);
+    }
+
+    public Expression plus(Expression addend) {
+        return new Sum(this,addend);
     }
 
 
