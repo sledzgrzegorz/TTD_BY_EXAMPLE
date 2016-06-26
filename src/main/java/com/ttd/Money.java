@@ -15,9 +15,7 @@ public  class Money implements Expression{
         this.currency=currency;
     }
 
-    Expression times(int multiplayer){
-         return new Money(amount*multiplayer,currency);
-     }
+
 
     @Override
     public boolean equals(Object obj) {
@@ -40,6 +38,10 @@ public  class Money implements Expression{
 
     public Expression plus(Expression addend) {
         return new Sum(this,addend);
+    }
+
+    public Expression times(int multiplier) {
+            return new Money(amount*multiplier,currency);
     }
 
 
