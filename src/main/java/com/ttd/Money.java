@@ -4,6 +4,10 @@ package com.ttd;
  * Created by Grzesiek on 2016-06-25.
  */
 public  class Money implements Expression{
+    public Money reduce(String to) {
+        return this;
+    }
+
     protected int amount;
 
     protected String currency;
@@ -30,7 +34,7 @@ public  class Money implements Expression{
     }
 
     Expression plus(Money addend){
-        return new Money(addend.amount+amount,currency);
+        return new Sum(this,addend);
     }
 
     public  String currency(){
